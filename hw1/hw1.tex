@@ -1,0 +1,282 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for rotated page geometry
+\usepackage[parfill]{parskip}    			% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{enumerate}
+\usepackage{tikz}
+
+\usetikzlibrary{arrows}
+
+
+\title{IMGS 682 Spring 2018 - Homework 1\\Linear Algebra, Classifiers, and PCA}
+%\author{John Doe - \texttt{jdoe@rit.edu}}
+\date{}					
+
+\begin{document}
+
+\maketitle
+
+\textbf{Due: See My Courses}
+
+\section*{Instructions}
+
+Your homework submission must cite any references used (including articles, books, code, websites, and personal communications). All solutions must be written in your own words, and you must program the algorithms yourself. If you do work with others, you must list the people you worked with. Submit your solutions as a PDF to the Dropbox Folder on MyCourses.
+
+Your homework solution must be prepared in \LaTeX and output to PDF format. I suggest using \url{http://overleaf.com} or BaKoMa \TeX  to create your document.
+
+Your programs must be written in Python. The relevant code to the problem should be in the PDF you turn in. If a problem involves programming, then the code should be shown as part of the solution to that problem. One easy way to do this in \LaTeX is to use the verbatim environment, i.e., \textbackslash begin\{verbatim\} YOUR CODE \textbackslash end\{verbatim\}
+
+If you have forgotten your linear algebra, you may find the Matrix Cookbook useful, which can be readily found online. I like to do math using a program called MathType, which can easily export equations to AMS \LaTeX so that you don't have to actually write the equations in \LaTeX directly: \url{http://www.dessci.com/en/products/mathtype/}
+
+If told to implement an algorithm, don't just call a toolbox.
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Problem 1 (2 points)}
+
+Let ${\mathbf{X}}$ be a $4 \times 2$ matrix,   ${\mathbf{Y}}$ be a $2 \times 2$ matrix, and  ${\mathbf{Z}}$ be a matrix such that 
+${\mathbf{X}}={\mathbf{Z}}{\mathbf{Y}}$. What is the size of ${\mathbf{Z}}$?
+
+\textbf{Solution:}\\
+PUT SOMETHING HERE 
+% \\ <-- two backslashes makes a new line
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Problem 2 (4 points)}
+
+Let 
+\[
+{\mathbf{A}} = \left( {\begin{array}{*{20}c}
+   5 & { - 1}  \\
+   { - 1} & 5  \\
+
+ \end{array} } \right).
+\]
+Compute a formula for ${\mathbf{A}}^k$, i.e., the matrix power operation defined as the matrix product of $k$ copies of ${\mathbf{A}}$. \textbf{Your answer must be a single matrix.} Show the necessary steps of your derivation.
+%Hint: Read about the eigendecomposition.
+\\ \\
+\textbf{Solution:}\\
+PUT SOMETHING HERE 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Problem 3}
+
+Suppose $\mathbf{A}$ is an $n \times n$ matrix with eigenvalue $\lambda$ and the corresponding eigenvector $\mathbf{v}$.
+
+\subsection*{Part 1 (2 points)}
+If A is invertible, is $\mathbf{v}$ an eigenvector of $\mathbf{A}^{-1}$ If so, what will the new eigenvalue be? If not, explain why not.
+
+\textbf{Solution:}\\
+PUT SOMETHING HERE 
+
+
+\subsection*{Part 2  (2 points)}
+Is $3\mathbf{v}$ an eigenvector of $\mathbf{A}$? If so, what will the eigenvalue be? If not, explain why not.
+
+\textbf{Solution:}\\
+PUT SOMETHING HERE 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Problem 4}
+
+\subsection*{Part 1 (2 points)}
+Identify, with proof, the possible values of the determinant of an orthogonal matrix ${\mathbf{A}} \in \mathbb{R}^{n \times n}.$
+
+\textbf{Solution:}\\
+PUT SOMETHING HERE 
+
+\subsection*{Part 2 (2 points)}
+
+Assume $\mathbf{A}$ is an invertible matrix. Prove that \[
+\det \left( {{\mathbf{A}}^{ - 1} } \right) = \frac{1}
+{{\det \left( {{\mathbf{A}} } \right)}}.
+\]
+
+\textbf{Solution:}\\
+PUT SOMETHING HERE 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Problem 5}
+In this problem, and several others, you will use the classic MNIST digit dataset. MNIST is made up of 70,000 $28 \times 28$ images of the handwritten digits 0--9, where 60,000 of the images have been designated for use in training algorithms and 10,000 images have been designated for testing/evaluating algorithms to see how well they work on data they have never seen before (i.e., how well they generalize to new data). The image values should be converted from integers to floating point values. Using single precision will make the code run faster and use less memory.
+
+Go to this webpage \url{http://yann.lecun.com/exdb/mnist/} and download these four files:
+
+train-images-idx3-ubyte.gz:  training set images (9912422 bytes) \\
+train-labels-idx1-ubyte.gz:  training set labels (28881 bytes) \\
+t10k-images-idx3-ubyte.gz:   test set images (1648877 bytes) \\
+t10k-labels-idx1-ubyte.gz:   test set labels (4542 bytes) \\
+
+After downloading them, you likely will need to unzip them and place them in a folder. 
+
+\textbf{Important:} mnist\_hard.mat is not used for this problem. It is used later on a different problem. 
+
+\subsection*{Part 1 (2 Points)}
+Display the first 10 data points in the training set as images. You will likely need to use the numpy.reshape function to do this by reshaping each 784-dimensional vector into a $28 \times 28$ image to display it. 
+
+\textbf{Solution:}\\
+PUT SOMETHING HERE 
+
+\subsection*{Part 2 (2 Points)}
+
+Compute the mean of each digit in the training set, i.e., compute the mean of all the zeros, all the ones, etc. Your answer should display 10 images (i.e., the average `0', the average `1', etc.). You should provide your code as part of your answer. 
+
+%Look at this if you are confused about what I want you to do: https://web.archive.org/web/20161119103053/http://g.sweyla.com/blog/2012/mnist-numpy/
+
+\textbf{Solution:}\\
+PUT SOMETHING HERE 
+%How to display images in LaTeX:
+%\includegraphics[]{mnist_mean_var.jpg}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Problem 6 (4 points)}
+Implement $k$ nearest neighbors using Euclidean distance and evaluate your algorithm by ``training'' it on the 60,000 MNIST training images and evaluating it on the 10,000 testing images. To do this, write a function that takes as input the test features (images), training images, training labels, and $k$, and it should output predicted class labels for each test feature vector (or image). For debugging purposes, I suggest you only use a small portion of the training images (first 300 images) and that you use vectorization to ensure your code is fast. Note that with vectorization you may need to manage memory to ensure your machine doesn't run out of resources. 
+
+What's the percent accuracy with $k$ equal to 1, 3, and 5 on the test images? What would the accuracy be on the training images be when $k=1$?
+ 
+\textbf{Solution:}\\
+PUT SOMETHING HERE 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Problem 7}
+
+One of the major problems with nearest neighbor is that it doesn't have a way to weigh the importance of each dimension of the feature vector. It also is computationally expensive because it requires comparing a vector of test features to every training data point. A computationally faster approach are linear classifiers.
+
+For a $K$ category classification problem, a multi-class linear algorithm will use a collection of $K$ $d$-dimensional vector to classify a $d$ dimensional vector of features (e.g., an image). Formally, this prediction would be given by 
+$y = \arg \max _k {\mathbf{w}}_k^T {\mathbf{x}}$, where $\mathbf{w}_k$ is the weight vector for category $k$ and ${\mathbf{x}}$ is the input vector of features.
+
+Many algorithms have been devised to find the collection $\mathbf{w}_k$ vectors, and they each perform differently. We will look at some of the simplest methods.
+
+
+\subsection*{Part 1 (4 points)}
+A linear machine is a generalization of the Perceptron algorithm to multiple categories. To train a linear machine, it sequentially classifies each vector in the training data ${\mathbf{x}}_t$, i.e.,
+\[
+y_t  = \arg \max _k {\mathbf{w}}_k^{T} {\mathbf{x}}_t. 
+\]
+If the predicted category $y_t$ is not the correct category $v$, then the weights are updated as follows:
+\[
+\begin{gathered}
+  {\mathbf{w}}_v   \leftarrow  {\mathbf{w}}_v  + \alpha {\mathbf{x}}_t  \hfill \\
+  {\mathbf{w}}_{y_t }   \leftarrow  {\mathbf{w}}_{y_t }  - \alpha {\mathbf{x}}_t  \hfill \\ 
+\end{gathered} 
+\]
+where $\alpha$ is the learning rate. During training, the algorithm will review all of the training data multiple times (each loop through the entire dataset is called an epoch).
+
+Implement a linear machine and compute the accuracy on the training data \textit{and} the test data. Use a learning rate of $\alpha=1$ and use 2 epochs, and initialize all of your weight vectors, i.e., all 10 of the $\mathbf{w}_k$ vectors, to be all zeros. How do the results on the train and test data compare to the nearest neighbor results from the previous problem? If there is a significant difference, explain why this might be the case.
+
+\textbf{Solution:}\\
+PUT SOMETHING HERE 
+
+\subsection*{Part 2 (4 points)}
+While linear machines are easy to program and understand, they are not regularized and cannot output probabilities. One of the best regularized linear classifiers is the Support Vector Machine (with a linear kernel). 
+
+Use scikit-learn to run an SVM on the dataset. Train a linear SVM model (LinearSVC) and compute the test accuracy on the MNIST test data. Tune the cost parameter.
+
+%Read this: http://scikit-learn.org/stable/modules/svm.html
+
+\textbf{Solution:}\\
+PUT SOMETHING HERE 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Problem 8 (2 points)}
+Discuss the limitations of a linear classifier. What are some ways in which these limitations could be overcome?
+
+\textbf{Solution:}\\
+PUT SOMETHING HERE 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Problem 9 (2 points)}
+Discuss the limitations of the naive nearest neighbor algorithm. What are some ways in which these limitations could be overcome?
+
+\textbf{Solution:}\\
+PUT SOMETHING HERE 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Problem 10 - Principal Component Analysis 1}
+Consider the following dataset of three points in $\mathbb{R}^2$: ${\mathbf{x}}_1  = \left( { - 1, - 1} \right)^T ,{\mathbf{x}}_2  = \left( {0,0} \right)^T ,{\mathbf{x}}_3  = \left( {1,1} \right)^T$.
+
+\subsection*{Part 1 (2 points)}
+What is the first principal component when normalized to unit length? Write down the vector.
+
+\textbf{Solution:}\\
+PUT SOMETHING HERE 
+
+\subsection*{Part 2 (2 points)}
+Use the vector you found in Part 1 to reduce the dimensionality of the data to one dimension. What are the new coordinates? What is the variance of the projected data?
+
+\textbf{Solution:}\\
+PUT SOMETHING HERE 
+
+\subsection*{Part 3 (2 points)}
+Compute the reconstruction error when the data is projected back to two dimensional space.
+
+\textbf{Solution:}\\
+PUT SOMETHING HERE 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Problem 11 - Principal Component Analysis 2}
+
+\subsection*{Part 1 (2 Points)}
+Principal Component Analysis (PCA) is typically explained using an eigendecomposition of the $d \times d$ data covariance matrix $\mathbf{C}$; however, due to finite-precision arithmetic on a computer this algorithm for PCA can be numerically unstable. In practice, Singular Value Decomposition (SVD) of the data itself (instead of the covariance matrix) is typically used, i.e., ${\mathbf{X}} = {\mathbf{U\Sigma V}}^T$ (see Appendix A.1 of Szeliski).
+
+Given a data matrix $\mathbf{X}$ show mathematically how SVD can be used to compute the principal components instead of using the eigendecomposition of $\mathbf{C}$. Assume that ${\mathbf{X}}$ is mean zero (i.e., centered).  What would be the formula for the eigenvalues using the SVD algorithm for PCA? 
+
+\textbf{Hint:} This problem requires you to use the formula for PCA using the covariance matrix $\mathbf{C}$ to find a formula for PCA using SVD instead.
+
+\textbf{Solution:}\\
+PUT SOME MATH HERE.
+
+\subsection*{Part 2 (4 Points)}
+Write a function that implements PCA using SVD. Your algorithm should take a $d \times m$ matrix $D$ and an integer $k$ as input, where $d$ is the dimensionality of the $m$ data points, and $k$ is the number of principal components to retain. Do not assume that $D$ is mean zero. The function should return the top $k$ principal components in a matrix and the $d$ dimensional mean. 
+
+Apply your function to the MNIST training data to reduce the dimensionality to 10 dimensions. Display the first 10 principal components as images. When displaying the image, contrast normalize it by constraining the values to be between 0 and 1 by subtracting the minimum and then dividing by the maximum (this is called contrast stretching). 
+
+\textbf{Hint:} You may want to cast the data as single precision to reduce the amount of memory it uses before calling your PCA function. 
+
+\textbf{Solution:}\\
+PUT SOMETHING HERE 
+
+\subsection*{Part 3 (4 points)}
+Plot the mean reconstruction error (squared distance between the original data and the reconstructed data) as a function of the number of principal component. To do this efficiently, you should make a new version of your function for PCA to in which $k$ is varied. Use vectorization to ensure your code runs fast. Even if you use vectorization, expect this script to take decent amount of time to run (30-90 minutes). Make sure to label your plot's axes.  To make things fast, you may choose to plot powers of 2, e.g., $2^0, 2^1, 2^2,\ldots, 2^9$. Discuss the results.
+
+\textbf{Solution:}\\
+PUT SOMETHING HERE 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Problem 12}
+Download the file mnist\_hard.mat. Note that you can load MATLAB data files (*.mat files) into Python using the function loadmat in SciPy. It should be clear from the variables in the file which are the appropriate data and labels.
+
+
+\subsection*{Part 1 (2 points)}
+Train 1-nearest neighbor and report the accuracy on the test data. 
+
+\textbf{Solution:}\\
+PUT SOMETHING HERE 
+
+\subsection*{Part 2 (2 points)}
+Apply PCA to the training data to reduce the dimensionality to 600. The PCA transformation should be found using the training data, and then that transformation should be applied to both the train and test data. Compute accuracy on the test data using the 1-nearest neighbor classifier with the reduced dimensionality data. If PCA improved accuracy, explain why you think it might have done so.
+
+\textbf{Solution:}\\
+PUT SOMETHING HERE 
+
+\subsection*{Part 3 (2 points)}
+Why did accuracy differ significantly from when MNIST was used earlier? List two ways in which you might be able to increase accuracy and explain why you think they will help.
+
+\textbf{Solution:}\\
+PUT SOMETHING HERE 
+
+\subsection*{Part 4 (4 points)}
+Implement one of the ideas you came up with in the previous section and evaluate it on the test data using 1-nearest neighbor. How did it affect the accuracy on the test data? Make sure to provide whatever code you wrote (which you should have been doing for all of the programming questions anyway).
+
+\textbf{Solution:}\\
+PUT SOMETHING HERE 
+
+\end{document}  
